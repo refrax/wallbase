@@ -37,9 +37,8 @@ def get_pic(number_imgs, timespan):
 
     return img_urls
 
-def save_pic(url):
+def save_pic(url, save_path):
     """Saves a file to disk when given a URL"""
-    save_path = sys.argv[1]
     hs = hashlib.md5(url.encode('UTF-8')).hexdigest()
     file_ext = url.split(".")[-1]
     to_save = (save_path + hs + "." + file_ext)
@@ -52,4 +51,4 @@ def save_pic(url):
 
 if __name__ == "__main__":
     for img in get_pic(32, "3d"):
-        save_pic(img)
+        save_pic(img, sys.argv[1])
