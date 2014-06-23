@@ -2,6 +2,8 @@
 
 Written in Python 3
 
+Dependencies: *BeautifulSoup, Requests, urllib.request*
+
 Snatch top 32 wallpapers from the last 3 days at wallbase.cc 
 
 run from commandline, specifying where you want the images saved as the first commandline option.
