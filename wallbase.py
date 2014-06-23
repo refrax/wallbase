@@ -13,9 +13,9 @@ def get_pic(number_imgs, timespan):
     """
     url = "http://wallbase.cc/toplist"
     opts = {
-        'section':'wallpapers', 'q':'', 'res_opt':'gteq', 
-        'res':'1920x1080', 'aspect':'1.77', 'purity':'100', 
-        'board':'21', 'thpp':number_imgs, 'ts':timespan
+        'section': 'wallpapers', 'q': '', 'res_opt': 'gteq', 
+        'res': '1920x1080', 'aspect': '1.77', 'purity': '100', 
+        'board': '21', 'thpp': number_imgs, 'ts': timespan
     }
     htmltext = requests.get(url, params = opts)
     page_urls = []
