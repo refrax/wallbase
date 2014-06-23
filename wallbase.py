@@ -42,12 +42,11 @@ def save_pic(url, save_path):
     hs = hashlib.md5(url.encode('UTF-8')).hexdigest()
     file_ext = url.split(".")[-1]
     to_save = (save_path + hs + "." + file_ext)
-    if to_save != "":
-        if os.path.isfile(to_save):
-            print(hs + "." + str(file_ext) + "\texists, skipping...")
-        else:
-            print(hs + "." + str(file_ext) + "\tdownloading...")
-            urllib.request.urlretrieve(url, to_save)
+    if os.path.isfile(to_save):
+        print(hs + "." + str(file_ext) + "\texists, skipping...")
+    else:
+        print(hs + "." + str(file_ext) + "\tdownloading...")
+        urllib.request.urlretrieve(url, to_save)
 
 if __name__ == "__main__":
     for img in get_pic(32, "3d"):
