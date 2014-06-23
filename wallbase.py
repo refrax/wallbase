@@ -25,8 +25,11 @@ def get_pic(number_imgs, timespan):
     soup = BeautifulSoup(htmltext.content)
     results = soup.findAll("a")
 
-    page_urls = [r['href'] for r in results
-        if "http://wallbase.cc/wallpaper/" in r['href']]
+    page_urls = [
+        r['href']
+        for r in results
+        if "http://wallbase.cc/wallpaper/" in r['href']
+    ]
 
     for page in page_urls:
         wp_page = requests.get(page)
