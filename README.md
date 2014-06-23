@@ -1,5 +1,4 @@
 #wallbase
-========
 
 Written in Python 3
 
