@@ -1,4 +1,5 @@
 #!/usr/bin/env python
+"""Downloading of top wallpapers from wallbase.cc"""
 
 import os
 import requests
@@ -27,8 +28,8 @@ def get_pic(number_imgs, timespan):
     page_urls = [r['href'] for r in results
         if "http://wallbase.cc/wallpaper/" in r['href']]
 
-    for p in page_urls:
-        wp_page = requests.get(p)
+    for page in page_urls:
+        wp_page = requests.get(page)
         wp_soup = BeautifulSoup(wp_page.content)
         wp_results = wp_soup.findAll("img")
         for res in wp_results:
@@ -40,10 +41,10 @@ def get_pic(number_imgs, timespan):
 
 def save_pic(url, save_path):
     """Saves a file to disk when given a URL"""
-    hs = hashlib.md5(url.encode('UTF-8')).hexdigest()
+    hashval = hashlib.md5(url.encode('UTF-8')).hexdigest()
     file_ext = url.split(".")[-1]
-    to_save = (save_path + hs + "." + file_ext)
-    file_name = hs + "." + file_ext
+    to_save = (save_path + hashval + "." + file_ext)
+    file_name = hashval + "." + file_ext
     if os.path.isfile(to_save):
         print(file_name + "\texists, skipping...")
     else:
