@@ -39,10 +39,10 @@ def get_pic(number_imgs, timespan):
 
 def save_pic(url):
     """Saves a file to disk when given a URL"""
+    save_path = sys.argv[1]
     hs = hashlib.md5(url.encode('UTF-8')).hexdigest()
     file_ext = url.split(".")[-1]
-    to_save = ("/home/jabber/Dropbox/Documents/Pictures/Wallpapers/Autogets/" + 
-        hs + "." + file_ext)
+    to_save = (save_path + hs + "." + file_ext)
     if to_save != "":
         if os.path.isfile(to_save):
             print(hs + "." + str(file_ext) + "\texists, skipping...")
